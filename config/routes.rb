@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 
   resources :users, except: [:index] do
-    get '/:id/feed' => 'users#index', as: 'user_feed'
+    get '/feed' => 'users#index', as: 'feed'
   end
 
 end

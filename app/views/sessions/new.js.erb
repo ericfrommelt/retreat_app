@@ -1,0 +1,6 @@
+$('#user-auth-modal').empty();
+
+var loginForm = '<%= j(render "loginform") %>';
+
+$('#user-auth-modal').append('<h1>Log In</h1>').append(loginForm);
+$('#user-auth-modal').show();

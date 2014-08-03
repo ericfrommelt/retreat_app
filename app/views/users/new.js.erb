@@ -1,0 +1,6 @@
+// $('#user-auth-modal').empty();
+
+$('#user-auth-modal').append('<h1>Sign Up</h1>');
+$('#user-auth-modal').append('<%= j(render partial: "form", locals: {user: @user}) %>');
+
+$('#user-auth-modal').show();

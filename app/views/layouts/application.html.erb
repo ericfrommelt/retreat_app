@@ -8,17 +8,19 @@
 </head>
 <body>
 
-  <%= form_tag '/login', method: 'get', remote: true do %>
-    <%= submit_tag 'Log In' %>
+  <% main_user = current_user %>
+  <% if !main_user %>
+    <%= link_to 'Log In', login_path, id: 'login-link', remote: true %>
+
+    <div id='user-auth-modal'>
+    </div>
+
+    <%= link_to 'Sign Up', new_user_path, id: 'signup-link', remote: true %>
+  <% else %>
+    <p>
+      Welcome, <%= main_user.first_name %>
+    </p>
   <% end %>
-
-  <div id='#session-modal'>
-  </div>
-
-  <%= form_tag '/signup', method: 'get', remote: true do %>
-    <%= submit_tag 'Sign Up' %>
-  <% end %>
-
 <%= yield %>
 
 </body>
