@@ -8,6 +8,17 @@
 </head>
 <body>
 
+  <%= form_tag '/login', method: 'get', remote: true do %>
+    <%= submit_tag 'Log In' %>
+  <% end %>
+
+  <div id='#session-modal'>
+  </div>
+
+  <%= form_tag '/signup', method: 'get', remote: true do %>
+    <%= submit_tag 'Sign Up' %>
+  <% end %>
+
 <%= yield %>
 
 </body>
