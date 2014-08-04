@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get '/' => 'welcome#index', as: 'root'
+  root to: 'welcome#index'
 
-  # get '/' => 'application#index', as: 'root'
   get '/login' => 'sessions#new', as: 'login'
   get '/logout' => 'sessions#destroy', as: 'logout'
   resources :sessions, only: [:create, :destroy]

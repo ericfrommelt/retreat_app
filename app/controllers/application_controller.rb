@@ -4,14 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
 
-  def index
-    render layout: 'application', text: ""
-  end
-
   private
 
   def current_user
-    User.find(session[:current_user]) if session[:current_user]
+    @current_user ||= User.find(session[:current_user]) if session[:current_user]
   end
 
   def authenticate

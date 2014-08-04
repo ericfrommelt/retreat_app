@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:current_user] = @user.id
+
+      # if user info is correct redirect user new route
       render :js => "window.location = '#{user_feed_path @user}'"
     end
   end
