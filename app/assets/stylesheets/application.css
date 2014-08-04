@@ -13,11 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-#user-auth-modal {
-  display: none;
-  position: absolute;
-  top: 40%;
-  left: 30%;
-
-}

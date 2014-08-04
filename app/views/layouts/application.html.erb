@@ -4,23 +4,37 @@
   <title>RetreatApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= typekit_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <% main_user = current_user %>
-  <% if !main_user %>
-    <%= link_to 'Log In', login_path, id: 'login-link', remote: true %>
+  <header id="top-bar">
+    <div class="container">
+      <div class="logo">Retreat</div>
+      <div class="navigation">
+        <ul>
+          <li>
+            <% main_user = current_user %>
+            <% if !main_user %>
+            <%= link_to 'Log In', login_path, id: 'login-link', remote: true %>
+            <% else %>
+              Welcome, <%= main_user.first_name %> | <%= link_to 'Log Out', logout_path %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
 
-    <div id='user-auth-modal'>
+  <div class="modal">
+    <div id="user-auth-modal">
     </div>
 
-    <%= link_to 'Sign Up', new_user_path, id: 'signup-link', remote: true %>
-  <% else %>
-    <p>
-      Welcome, <%= main_user.first_name %>
-    </p>
-  <% end %>
+    <div id="sign-up-modal">
+    </div>
+  </div>
+
 <%= yield %>
 
 </body>
