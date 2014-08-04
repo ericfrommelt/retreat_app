@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new', as: 'login'
   resources :sessions, only: [:create, :destroy]
 
-  resources :users do
-    get '/feed' => 'users#index', as: 'feed'
+  resources :users, except: [:index] do
+    get '/feed' => 'users#feed', as: 'feed'
+    get '/search' => 'users#search', as: 'search'
   end
 
   resources :friendships
