@@ -44,7 +44,7 @@ describe 'User Authentication', js: true do
 
     modal = find '#user-auth-modal'
     click_button 'Log In'
-    expect(modal).to have_content('That email is not registered')
+    expect(modal).to have_content('not registered')
   end
 
   # When creating a new account
