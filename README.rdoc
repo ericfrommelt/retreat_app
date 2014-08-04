@@ -1,3 +1,4 @@
 == README
 
 ["User Stories"] https://trello.com/b/WIPz9HQ0/gen-project-2
+["ERD's"] https://www.lucidchart.com/documents/edit/625a3379-0884-4a2c-add0-d55fc2e5ec07/0
