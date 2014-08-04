@@ -2,3 +2,21 @@
 
 <h3><%= @user.first_name  %> <%= @user.last_name %></h3>
 <%= link_to @user.email %>
+<%= link_to "News Feed", user_feed_path(@user) %>
+<h4>My Friends</h4>
+  <% @user.friends.each do |friend| %>
+      <p>
+        <a href="<%= friendship_path %>">
+          <img src="<%= friend.image_url %>">
+            <%= friend.first_name %> <%= friend.last_name %>
+          </img>
+        </a>
+      </p>
+  <% end %>
+
+  <h2>Users Who Have Befriended You</h2>
+  <ul>
+    <% for user in @user.inverse_friends %>
+    <li><%= user.first_name%> <%= user.last_name %></li>
+    <% end %>
+  </ul>
