@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 
   resources :users, except: [:index] do
-    get '/feed' => 'users#index', as: 'feed'
+    get '/feed' => 'users#feed', as: 'feed'
   end
 
+  get '/search_locales' => 'places#seach', as: 'search_places'
 end
