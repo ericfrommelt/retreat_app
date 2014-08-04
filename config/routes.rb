@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  get '/' => 'welcome#index', as: 'root'
+  root to: 'welcome#index'
 
-  # get '/' => 'application#index', as: 'root'
   get '/login' => 'sessions#new', as: 'login'
   get '/logout' => 'sessions#destroy', as: 'logout'
   resources :sessions, only: [:create, :destroy]
 
   resources :users, except: [:index] do
-    get '/feed' => 'users#index', as: 'feed'
+    get '/feed' => 'users#feed', as: 'feed'
   end
 
 end

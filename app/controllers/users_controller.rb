@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  def index
+  def feed
   end
 
   def new
@@ -11,6 +11,8 @@ class UsersController < ApplicationController
     @user = User.new(users_params)
 
     if @user.save
+
+      # if user info is correct redirect user new route
       render :js => "window.location = '#{user_feed_path @user}'"
     end
   end
