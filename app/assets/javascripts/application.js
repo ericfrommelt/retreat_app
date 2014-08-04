@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  console.log('ready!');
+  $('body').on('click', '.close', closeUserAuthModal);
+})
+
+function closeUserAuthModal() {
+  console.log('close click');
+  $('.modal').hide();
+  $('#user-auth-modal').hide();
+}
