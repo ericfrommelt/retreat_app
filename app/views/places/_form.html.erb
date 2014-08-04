@@ -1,0 +1,4 @@
+<%= form_tag search_places_path, method: :get, remote: true do %>
+  <%= text_field_tag 'search', nil, placeholder: 'Where did you go?' %>
+  <div id="places-dropdown"></div>
+<% end %>

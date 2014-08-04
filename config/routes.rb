@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     get '/feed' => 'users#feed', as: 'feed'
   end
 
+  get '/search_locales' => 'places#seach', as: 'search_places'
 end
