@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  def index
+  def feed
+    @users = User.all
   end
 
   def new
@@ -15,6 +16,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def search
+
+  end
+
+  private
   def users_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
