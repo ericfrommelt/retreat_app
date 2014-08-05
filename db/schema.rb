@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140803212430) do
+ActiveRecord::Schema.define(version: 20140804202203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "friend_requests", force: true do |t|
-    t.integer "sender"
+    t.integer "sender_id"
     t.integer "user_id"
   end
 

@@ -1,4 +1,13 @@
-<% @users.each do |user| %>
+<div id="search-div">
+  <%= form_tag('/search_friends', remote: true, method: :get) do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag 'Search Friends' %>
+  <% end %>
+</div>
+
+<div class="friend-modal">
+</div>
+<!-- <% @users.each do |user| %>
   <div class="user">
     <p>
       <strong><%=h user.first_name %> <%=h user.last_name %></strong>
@@ -6,4 +15,4 @@
       <div class="clear"></div>
     </p>
   </div>
-<% end %>
+<% end %> -->

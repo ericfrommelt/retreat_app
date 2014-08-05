@@ -7,8 +7,14 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index] do
     get '/feed' => 'users#feed', as: 'feed'
-    get '/search' => 'users#search', as: 'search'
   end
 
-  resources :friendships
+  get '/search_friends' => 'users#search', as: 'search_friends'
+
+  resources :friendships, only: [:create, :destroy]
+
+  resources :friend_requests, only: [:create, :destroy] do
+    post 'accept', on: :member
+    post 'reject', on: :member
+  end
 end

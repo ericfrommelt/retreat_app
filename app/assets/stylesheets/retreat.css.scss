@@ -190,3 +190,30 @@ button.login-button:hover {
   background-color: rgba(247, 232, 160, 1.0);
   padding: 0 70px 20px 70px;
 }
+
+
+
+//::::::::::Feed Search Friends:::::::::::::::::::
+
+.feed-modal {
+  background-color: $yellow-light;
+  color: $purple!important;
+  margin-top: 40px;
+  position: center;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+.name img {
+  width: 250px;
+  height: 250px;
+  border: 5px solid white;
+}
+.name {
+  text-align: center;
+  color: rgba(145, 27, 192, 0.84);
+}
+#button {
+  display: block;
+  text-align: center;
+}
