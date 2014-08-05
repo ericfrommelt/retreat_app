@@ -1,0 +1,10 @@
+  var modal = $('.modal');
+  var closeButton = $('<button class="close">Close</button>');
+  var friendsModal = $('<div class="feed-modal">')
+  var friends = $('<%= j(render @users) %>')
+
+  modal.empty()
+  modal.append(closeButton)
+  friendsModal.append(friends);
+  modal.append(friendsModal)
+  modal.show()

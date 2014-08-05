@@ -1,0 +1,22 @@
+<% if user.id != current_user.id %>
+  <div id="<%=dom_id(user)%>" class="user">
+    <p class="name">
+      <%= image_tag user.image_url %>
+      <%= user.first_name %> <%= user.last_name %>
+
+      <% if user.friends.include?(current_user) %>
+      
+      <% elsif !user.friend_requests.find_by(sender_id: current_user.id) %>
+        <%= form_tag friend_requests_path, method: :post, remote: true do %>
+          <%= hidden_field_tag "friend_request[user_id]", user.id  %>
+          <%= hidden_field_tag "friend_request[sender_id]", current_user.id %>
+          <div class='button'>
+            <%= submit_tag "Add Friend" %>
+          </div>
+        <% end %>
+      <% else %>
+        Awaiting Approval
+      <% end %>
+    </p>
+  </div>
+<% end %>
