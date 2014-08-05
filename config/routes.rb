@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get '/feed' => 'users#feed', as: 'feed'
   end
 
+
   get '/search_friends' => 'users#search', as: 'search_friends'
 
   resources :friendships, only: [:create, :destroy]
@@ -17,4 +18,7 @@ Rails.application.routes.draw do
     post 'accept', on: :member
     post 'reject', on: :member
   end
+
+  resources :getaways
+
 end

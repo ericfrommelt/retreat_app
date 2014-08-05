@@ -193,6 +193,7 @@ button.login-button:hover {
 
 
 
+
 //::::::::::Feed Search Friends:::::::::::::::::::
 
 .feed-modal {
@@ -216,4 +217,37 @@ button.login-button:hover {
 #button {
   display: block;
   text-align: center;
+
+//::::::::::::::::::NEW GETAWAY:::::::::::::::::::::::::::::
+
+#departure-date-div, #comment-div {
+  display: none;
+}
+
+p#date-placeholder, p#comment-placeholder {
+  color: gray;
+}
+
+#new-getaway-modal {
+  position: absolute;
+  top: 1%;
+  left: 33%;
+  z-index: 1000;
+  display:none;
+  width: 300px;
+  height: 200px;
+  overflow: scroll;
+  padding: 60px;
+  margin: 100px auto;
+  background: white;
+}
+
+.place-option {
+  padding: 10px;
+}
+
+
+.place-option:hover {
+  background: black;
+  color: whitesmoke;
 }
