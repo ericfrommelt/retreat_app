@@ -1,6 +1,0 @@
-<% @places.each do |place| %>
-  $('<p>').text('<%= place.city %>, <%= place.country %>')
-    .appendTo('#places-dropdown');
-<% end %>
-
-$('#places-dropdown').slideDown();

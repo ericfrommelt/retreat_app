@@ -3,6 +3,7 @@
 <head>
   <title>RetreatApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= typekit_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -15,11 +16,11 @@
       <div class="navigation">
         <ul>
           <li>
-            <% main_user = current_user %>
-            <% if !main_user %>
+            <% if !current_user %>
             <%= link_to 'Log In', login_path, id: 'login-link', remote: true %>
+
             <% else %>
-              Welcome, <%= main_user.first_name %> | <%= link_to 'Log Out', logout_path %>
+              Welcome, <%= current_user.first_name %> | <%= link_to 'Log Out', logout_path %>
             <% end %>
           </li>
         </ul>
@@ -27,13 +28,15 @@
     </div>
   </header>
 
-  <div class="modal">
-    <div id="user-auth-modal">
-    </div>
+  <% if !current_user %>
+    <div class="modal">
+      <div id="user-auth-modal">
+      </div>
 
-    <div id="sign-up-modal">
+      <div id="sign-up-modal">
+      </div>
     </div>
-  </div>
+  <% end %>
 
 <%= yield %>
 

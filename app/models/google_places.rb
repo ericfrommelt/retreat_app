@@ -23,7 +23,9 @@ module GooglePlaces
       # the places generated are kept in the application for future
       # usage so that it won't always have to rely on api calls to google
       # and can make quicker calls to the server instead
-      Place.create(place_hash)
+      if Place.where("city='#{place_hash[:city]}' AND country='#{place_hash[:country]}'").count == 0
+        Place.create(place_hash)
+      end
     end
 
     places
