@@ -11,7 +11,7 @@ class GetawaysController < ApplicationController
   end
 
   def show
-
+    @getaway = Getaway.find(params[:id])
   end
 
   def getaways_params

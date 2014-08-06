@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   end
 
   resources :getaways
-
+  resources :getaway_photos
 end
