@@ -15,17 +15,31 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
+var ready;
+ready = function() {
+
   console.log('ready!');
   $('body').on('click', '.close', closeModal);
+  $('#timeline').on('click', '.log-trip', loadNewGetaway);
+  $('#timeline').on('click', '.read-more', loadShowGetaway);
 
-  // if (window.location.pathname === '/getaways/new') {
-    googlePlacesAutocomplete();
-  // }
+  googlePlacesAutocomplete();
 
-})
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
 var autocomplete;
+
+function loadNewGetaway() {
+  location.href = '/getaways/new';
+}
+
+function loadShowGetaway() {
+  var getawayID = $(this).closest('.timeline-block').data('id');
+  location.href = '/getaways/' + getawayID;
+}
 
 function googlePlacesAutocomplete() {
 
@@ -58,6 +72,5 @@ function googlePlacesAutocomplete() {
 }
 
 function closeModal() {
-  console.log('close click');
   $('.modal').hide();
 }

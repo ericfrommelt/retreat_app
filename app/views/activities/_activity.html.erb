@@ -1,0 +1,6 @@
+<li id="<%= dom_id(activity) %>">
+  <figure><%= image_tag activity.image_url %></figure>
+  <%= link_to 'remove', activity_path(activity), method: :delete, remote: true %>
+  <p><%= activity.name %></p>
+  <div class="trip-info-detail"><%= activity.comment %></div>
+</li>

@@ -6,12 +6,15 @@ class GetawaysController < ApplicationController
 
   def create
     @getaway = Getaway.create!(getaways_params)
-
     redirect_to getaway_path(@getaway)
   end
 
   def show
+    @getaway = Getaway.find(params[:id])
 
+    @stay_activities = @getaway.activities.where(category: 'stay')
+    @eat_activities = @getaway.activities.where(category: 'eat')
+    @play_activities = @getaway.activities.where(category: 'play')
   end
 
   def getaways_params

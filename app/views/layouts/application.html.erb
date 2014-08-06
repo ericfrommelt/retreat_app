@@ -21,7 +21,7 @@
 
             <% else %>
 
-              Hi, <%= current_user.first_name %> | <%= link_to 'Log Out', logout_path %>
+              Hi, <%= link_to current_user.first_name, user_path(current_user) %> | <%= link_to 'Log Out', logout_path %>
 
             <% end %>
           </li>

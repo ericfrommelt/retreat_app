@@ -26,6 +26,10 @@ class UsersController < ApplicationController
     @users = User.where("LOWER(first_name) LIKE '%#{params[:search]}%'")#.where.not("#{params[:search] != current_user.first_name.downcase}")
   end
 
+  def friends
+    @friends = User.find(params[:user_id]).friends
+  end
+
   private
   def users_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)

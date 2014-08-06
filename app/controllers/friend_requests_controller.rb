@@ -3,6 +3,10 @@ class FriendRequestsController < ApplicationController
   before_action :authenticate
   # before_action :authorize, only[:index]
 
+  def index
+    @friend_requests = current_user.friend_requests
+  end
+
   def create
     @friend_request = FriendRequest.create(friend_request_params)
   end

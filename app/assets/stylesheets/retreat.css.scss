@@ -110,6 +110,7 @@ h1, h2, h3, h4, h5 { font-weight: 200; }
   background-color: rgba(0, 0, 0, 0.75);
   display: none;
   position: absolute;
+  z-index: 1000;
 }
 
 //::::::::::::::::::LOG-IN:::::::::::::::::::::::::::::
@@ -378,6 +379,7 @@ p#date-placeholder, p#comment-placeholder {
   background-color: $white;
   width: 100px;
   height: 100px;
+  overflow: hidden;
 }
 
 .add-stayed, .add-restaurant, .add-activity {
@@ -515,4 +517,22 @@ p#date-placeholder, p#comment-placeholder {
   left: auto;
   right: 122%;
   text-align: right;
+}
+
+#profile-modal {
+  background-color: $yellow-light;
+  color: $purple!important;
+  margin-top: 40px;
+  position: center;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+#activity-modal {
+  background-color: $yellow-light;
+  color: $purple!important;
+  margin-top: 40px;
+  position: center;
+  margin-left: 250px;
+  margin-right: 250px;
 }
