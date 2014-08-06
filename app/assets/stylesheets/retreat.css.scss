@@ -96,6 +96,10 @@ h1, h2, h3, h4, h5 { font-weight: 200; }
   margin: 6px 0;
 }
 
+.navigation li {
+  color: $white;
+}
+
 .navigation a {
   color: $red;
 }
@@ -406,4 +410,109 @@ p#date-placeholder, p#comment-placeholder {
 #add-stayed-form {
   display: none;
   color: $white;
+}
+
+//::::::::::::::::::USER PROFILE:::::::::::::::::::::::::::::
+#user-profile {}
+#user-profile-header, #user-info {
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+#user-profile-header h1 {}
+#user-profile-header figure {
+  width: 200px;
+  height: 200px;
+  background-color: #ccc;
+}
+
+#user-info { }
+
+#timeline {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 48px;
+  border-top: 1px solid #ccc;
+}
+
+#timeline h1 {
+  font-size: 72px;
+}
+
+// VERTICAL LINE
+#timeline::before {
+  content: '';
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  height: 100%;
+  width: 4px;
+  background: #ccc;
+  margin-left: -19px;
+}
+
+.log-trip {
+  position: relative;
+  left: 45%;
+}
+
+.timeline-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 42px;
+  height: 42px
+}
+
+ .timeline-image img {
+  display: block;
+  position:relative;
+  left: 0;
+  top: 0;
+  margin-left: -38px;
+  margin-top: 0;
+}
+
+.timeline-content {
+  position: relative;
+  width: 45%;
+}
+
+.timeline-block {
+  position: relative;
+  margin: 32px 0;
+}
+
+.timeline-block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.timeline-block:first-child {
+  margin-top: 0;
+}
+
+.timeline-block:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-date {
+  position: absolute;
+  width: 100%;
+  left: 115%;
+  top: 6px;
+}
+
+#timeline h3 {
+  margin: 0;
+}
+
+.timeline-block:nth-child(even) .timeline-content {
+  float: right;
+}
+
+.timeline-block:nth-child(even) .timeline-content .timeline-date {
+  left: auto;
+  right: 122%;
+  text-align: right;
 }
