@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index] do
     get '/feed' => 'users#feed', as: 'feed'
+    get '/friends' => 'users#friends', as: 'friends'
   end
 
 
@@ -14,11 +15,18 @@ Rails.application.routes.draw do
 
   resources :friendships, only: [:create, :destroy]
 
-  resources :friend_requests, only: [:create, :destroy] do
+  resources :friend_requests, only: [:index, :create, :destroy] do
     post 'accept', on: :member
     post 'reject', on: :member
   end
 
   resources :getaways
   resources :getaway_photos
+
+  resources :getaways do
+    get '/new_activity/:category' => 'activities#new', as: 'new_activity'
+  end
+
+  resources :activities, only: [:index, :create, :destroy]
+
 end
