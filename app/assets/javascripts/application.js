@@ -17,14 +17,24 @@
 
 $(document).ready(function() {
   console.log('ready!');
-  $('body').on('click', '.close', closeUserAuthModal);
-  $('#new-getaway-modal').on('click', '.place-option', setPlace);
+  $('body').on('click', '.close', closeModal);
+
+  // if (window.location.pathname === '/getaways/new') {
+    googlePlacesAutocomplete();
+  // }
+
+})
+
+var autocomplete;
+
+function googlePlacesAutocomplete() {
 
   autocomplete = new google.maps.places.Autocomplete(
       /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
       { types: ['(cities)'] });
   // When the user selects an address from the dropdown,
   // populate the address fields in the form.
+
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
     var textField = $('#autocomplete');
     var placeArray = textField.val().split(', ');
@@ -45,24 +55,9 @@ $(document).ready(function() {
     $('#new-getaway-date-form').append('<input type="submit" value="Save Trip">');
 
   });
-})
-
-var autocomplete;
-
-function closeUserAuthModal() {
-  console.log('close click');
-  $('.modal').hide();
-  $('#user-auth-modal').hide();
 }
 
-function setPlace() {
-  var place_array = $(this).text().split(', ');
-
-  place.city = place_array[0];
-  place.country = place_array[1];
-
-  $('#place-search-form').replaceWith('<p>'+ place.city +', '+ place.country +'</p>')
-
+function closeModal() {
+  console.log('close click');
   $('.modal').hide();
-  $('#departure-date-div').show();
 }
