@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20140804202203) do
   create_table "friendships", force: true do |t|
     t.integer "user_id"
     t.integer "friend_id"
+  end
+
 
   create_table "getaways", force: true do |t|
     t.text     "comment"
