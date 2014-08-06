@@ -259,6 +259,7 @@ button.login-button:hover {
 #button {
   display: block;
   text-align: center;
+}
 
 //::::::::::::::::::NEW GETAWAY:::::::::::::::::::::::::::::
 
@@ -291,7 +292,7 @@ p#date-placeholder, p#comment-placeholder {
 
 .place-option:hover {
   background: black;
-  color: whitesmoke;
+  color: $white;
 }
 
 //::::::::::::::::::TRIP DETAIL:::::::::::::::::::::::::::::
