@@ -6,19 +6,9 @@
   <% end %>
 </div>
 
-<div class="friend-modal">
-</div>
-<!-- <% @users.each do |user| %>
-  <div class="user">
-    <p>
-      <strong><%=h user.first_name %> <%=h user.last_name %></strong>
-      <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
-      <div class="clear"></div>
-    </p>
+<div class="modal">
+  <div id="feed-modal">
   </div>
-<% end %> -->
+</div>
 
 <%= link_to 'Add a Getaway', new_getaway_path %>
-
-<div id='feed-modal'>
-</div>

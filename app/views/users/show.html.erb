@@ -1,29 +1,17 @@
 <%= image_tag @user.image_url %>
 
 <h3><%= @user.first_name  %> <%= @user.last_name %></h3>
-<%= link_to @user.email %>
-<%= link_to "News Feed", user_feed_path(@user) %>
+
 <h2>My Friends</h2>
-  <% @user.friends.each do |friend| %>
-      <img src="<%= friend.image_url %>">
-        <%= friend.first_name %> <%= friend.last_name %>
-      </img>
-  <% end %>
 
-  <h2>Friend Requests</h2>
-    <% @user.friend_requests.each do |request| %>
-      <h2 class="friend-name">
-        <%= request.sender.first_name %> <%= request.sender.last_name %>
-      </h2>
+<% @user.friends.each do |friend| %>
+    <img src="<%= friend.image_url %>">
+      <%= friend.first_name %> <%= friend.last_name %>
+    </img>
+<% end %>
 
-      <div id="accept-button">
-        <%= form_tag accept_friend_request_path(request), method: :post do %>
-          <%= submit_tag "Accept Request" %>
-        <% end %>
-      </div>
-      <div id="deny-button">
-        <%= form_tag reject_friend_request_path(request), method: :post do %>
-          <%= submit_tag "Deny Request" %>
-        <% end %>
-      </div>
-    <% end %>
+<h2>Friend Requests</h2>
+
+<% @user.friend_requests.each do |request| %>
+  <%= render partial: 'users/user', locals: {user: request.sender} %>
+<% end %>
