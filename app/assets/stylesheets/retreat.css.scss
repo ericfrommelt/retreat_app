@@ -13,12 +13,54 @@ body {
   font-style: normal;
   font-weight: 400;
 }
+button {
+  background-color: $yellow-light;
+  border: none;
+  padding: 10px;
+  color: $purple;
+}
+
+button:hover { opacity: .85; }
+
+h1, h2, h3, h4, h5 { font-weight: 200; }
+
+
+//::::::::::::::::::GRID::::::::::::::::::::::::::::::::
 
 .container {
   width: 1280px;
   margin: 0 auto;
   position: relative;
 }
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_3_1_first,
+.grid_3_1,
+.grid_3_1_last {
+	display: inline;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.alpha {margin-left: 0;}
+.omega {margin-right: 0;}
+
+//:::::::::::::::4 COLUMN GRID::::::::::::::::::::::::::
+.container .grid_1 {width: 300px;}
+.container .grid_2 {width: 620px;}
+.container .grid_3 {width: 940px;}
+.container .grid_4 {width: 1260px;}
+
+//::::::::::::::::3 COLUMN GRID:::::::::::::::::::::::::
+.container .grid_3_1_first {width: 420px;}
+.container .grid_3_1 {width: 420px;}
+.container .grid_3_1_last {width: 420px;}
+
+
 
 //::::::::::::::::::TOP BAR:::::::::::::::::::::::::::::
 
@@ -52,6 +94,10 @@ body {
   list-style: none;
   padding: 0;
   margin: 6px 0;
+}
+
+.navigation li {
+  color: $white;
 }
 
 .navigation a {
@@ -249,5 +295,226 @@ p#date-placeholder, p#comment-placeholder {
 
 .place-option:hover {
   background: black;
+<<<<<<< HEAD
   color: white;
+=======
+  color: $white;
+}
+
+//::::::::::::::::::TRIP DETAIL:::::::::::::::::::::::::::::
+
+#trip-detail {
+
+}
+
+.trip-header {
+  background-image: image-url("capecorral.jpg");
+  background-size: cover;
+  min-height: 300px;
+  overflow: hidden;
+}
+
+.trip-header button {
+
+}
+
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  background-color: $white;
+  float: left;
+}
+
+#trip-detail h1, #trip-detail h2 {
+  color: $white;
+  font-weight: 200;
+}
+
+#trip-detail h1 {
+  font-size: 60px;
+  margin-bottom: 0;
+}
+
+.blank, .stayed, .ate, .played {
+  min-height: 200px;
+}
+
+.blank h3, .stayed h3, .ate h3, .played h3 {
+  font-weight: 200;
+  color: $white;
+  font-size: 48px;
+  padding-left: 20px;
+}
+
+.blank { min-width: 300px; }
+
+.stayed {
+  background-color: $dark-green;
+}
+
+.ate {
+  background-color: $red;
+}
+
+.played {
+  background-color: $yellow-light;
+}
+
+.trip-info-detail {
+  float: left;
+}
+
+#trip-info ul {
+  list-style: none;
+  padding: 20px;
+}
+
+.trip-info-list li {
+  color: $white;
+  display: block;
+}
+
+.trip-info-list figure {
+  margin: 0;
+  display: inline-block;
+  background-color: $white;
+  width: 100px;
+  height: 100px;
+}
+
+.add-stayed, .add-restaurant, .add-activity {
+  width: 60px;
+  height: 60px;
+  background-color: $purple;
+  border-radius: 50%;
+  background-image: image-url("plus.svg");
+  transition: all 0.4s ease;
+  float: left;
+}
+
+.add-stayed:hover, .add-restaurant:hover, .add-activity:hover {
+  transform: rotate(90deg)!important;
+}
+
+.add-cta {
+  position: relative;
+  margin-left: 20px;
+  }
+
+.add-cta p {
+  font-weight: 200;
+  margin: 10px 0 0 20px;
+  float: left;
+  color: $white;
+  font-size: 28px;
+  }
+
+#add-stayed-form {
+  display: none;
+  color: $white;
+}
+
+//::::::::::::::::::USER PROFILE:::::::::::::::::::::::::::::
+#user-profile {}
+#user-profile-header, #user-info {
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+#user-profile-header h1 {}
+#user-profile-header figure {
+  width: 200px;
+  height: 200px;
+  background-color: #ccc;
+}
+
+#user-info { }
+
+#timeline {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 48px;
+  border-top: 1px solid #ccc;
+}
+
+#timeline h1 {
+  font-size: 72px;
+}
+
+// VERTICAL LINE
+#timeline::before {
+  content: '';
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  height: 100%;
+  width: 4px;
+  background: #ccc;
+  margin-left: -19px;
+}
+
+.log-trip {
+  position: relative;
+  left: 45%;
+}
+
+.timeline-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 42px;
+  height: 42px
+}
+
+ .timeline-image img {
+  display: block;
+  position:relative;
+  left: 0;
+  top: 0;
+  margin-left: -38px;
+  margin-top: 0;
+}
+
+.timeline-content {
+  position: relative;
+  width: 45%;
+}
+
+.timeline-block {
+  position: relative;
+  margin: 32px 0;
+}
+
+.timeline-block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.timeline-block:first-child {
+  margin-top: 0;
+}
+
+.timeline-block:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-date {
+  position: absolute;
+  width: 100%;
+  left: 115%;
+  top: 6px;
+}
+
+#timeline h3 {
+  margin: 0;
+}
+
+.timeline-block:nth-child(even) .timeline-content {
+  float: right;
+}
+
+.timeline-block:nth-child(even) .timeline-content .timeline-date {
+  left: auto;
+  right: 122%;
+  text-align: right;
 }

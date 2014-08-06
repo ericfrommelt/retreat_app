@@ -27,3 +27,102 @@
         <% end %>
       </div>
     <% end %>
+
+    <section id="user-profile" class="container">
+      <header id="user-profile-header" class="grid_3">
+        <figure class="profile-photo"><%= image_tag @user.image_url %></figure>
+        <h1><%= @user.first_name  %> <%= @user.last_name %></h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pulvinar lobortis imperdiet. Nam at mauris et justo mattis tempor sit amet vel augue. Integer vel ligula nec urna feugiat pulvinar. Phasellus congue tortor arcu, eu lobortis ligula tincidunt vitae. Mauris mollis urna ac elit condimentum volutpat.</p>
+        <button class="edit-profile-button">Edit Profile</button>
+        <button class="delete-profile-button">Delete Profile</button>
+      </header>
+      <div id="user-info" class="grid_1">
+        <%= link_to @user.email %>
+        <h2><%= link_to "My News Feed", user_feed_path(@user) %><h2>
+        <h2>My Friends</h2>
+          <% @user.friends.each do |friend| %>
+            <img src="<%= friend.image_url %>">
+              <%= friend.first_name %> <%= friend.last_name %>
+            </img>
+          <% end %>
+
+          <h2>Friend Requests</h2>
+            <% @user.friend_requests.each do |request| %>
+              <h2 class="friend-name">
+                <%= request.sender.first_name %> <%= request.sender.last_name %>
+              </h2>
+
+              <div id="accept-button">
+                <%= form_tag accept_friend_request_path(request), method: :post do %>
+                  <%= submit_tag "Accept Request" %>
+                <% end %>
+              </div>
+              <div id="deny-button">
+                <%= form_tag reject_friend_request_path(request), method: :post do %>
+                  <%= submit_tag "Deny Request" %>
+                <% end %>
+              </div>
+            <% end %>
+      </div>
+
+      <section id="timeline" class="grid_4">
+        <h1><%= @user.first_name  %>'s trips</h1>
+        <button class="log-trip">Log a trip</button>
+        <div class="timeline-block">
+          <div class="timeline-image">
+            <%= image_tag "circle-purple.png" %>
+          </div>
+          <div class="timeline-content">
+            <h3>Narrowsburg, NY</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet nibh eget lectus venenatis, sit amet luctus arcu convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><button class="read-more">Read more</button>
+            <span class="timeline-date">07.2014</span>
+          </div>
+        </div>
+
+        <div class="timeline-block">
+          <div class="timeline-image">
+            <%= image_tag "circle-purple.png" %>
+          </div>
+          <div class="timeline-content">
+            <h3>Los Angeles, CA</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet nibh eget lectus venenatis, sit amet luctus arcu convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><button class="read-more">Read more</button>
+            <span class="timeline-date">04.2013</span>
+          </div>
+        </div>
+
+        <div class="timeline-block">
+          <div class="timeline-image">
+            <%= image_tag "circle-purple.png" %>
+          </div>
+          <div class="timeline-content">
+            <h3>San Francisco, CA</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet nibh eget lectus venenatis, sit amet luctus arcu convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><button class="read-more">Read more</button>
+            <span class="timeline-date">04.2013</span>
+          </div>
+        </div>
+
+        <div class="timeline-block">
+          <div class="timeline-image">
+            <%= image_tag "circle-purple.png" %>
+          </div>
+          <div class="timeline-content">
+            <h3>San Francisco, CA</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet nibh eget lectus venenatis, sit amet luctus arcu convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><button class="read-more">Read more</button>
+            <span class="timeline-date">04.2013</span>
+          </div>
+        </div>
+
+        <div class="timeline-block">
+          <div class="timeline-image">
+            <%= image_tag "circle-purple.png" %>
+          </div>
+          <div class="timeline-content">
+            <h3>San Francisco, CA</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet nibh eget lectus venenatis, sit amet luctus arcu convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><button class="read-more">Read more</button>
+            <span class="timeline-date">04.2013</span>
+          </div>
+        </div>
+
+      </section>
+
+    </section>
