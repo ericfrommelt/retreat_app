@@ -16,8 +16,8 @@ class UsersController < ApplicationController
       session[:current_user] = @user.id
 
       # if user info is correct redirect user new route
-      # render :js => "window.location = '#{user_feed_path @user}'"
-      redirect_to @user
+      render :js => "window.location = '#{user_feed_path @user}'"
+      # redirect_to @user
     end
   end
 

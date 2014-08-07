@@ -1,7 +1,7 @@
 <section id="trip-detail" class="container">
   <header class="grid_4 trip-header">
     <figure class="profile-photo">
-      <%= image_tag @getaway.user.image_url %>
+      <%= image_tag @getaway.user.avatar.url %>
     </figure>
     <h1><%= @getaway.city %>, <%= @getaway.country %></h1>
     <h2><%= @getaway.user.first_name %> <%= @getaway.user.last_name %></h2>
