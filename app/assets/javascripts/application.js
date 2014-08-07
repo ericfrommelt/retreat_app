@@ -86,5 +86,6 @@ function googlePlacesAutocomplete() {
 }
 
 function closeModal() {
+  $(this).remove();
   $('.modal').hide();
 }

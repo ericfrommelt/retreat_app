@@ -5,7 +5,12 @@
     </figure>
     <h1><%= @getaway.city %>, <%= @getaway.country %></h1>
     <h2><%= @getaway.user.first_name %> <%= @getaway.user.last_name %></h2>
-    <button>Save as Itineraty</button>
+
+    <% if @getaway.user != current_user %>
+      <a data-remote="true" href="<%= getaway_choose_date_path(@getaway) %>">
+        <button>Save as Itinerary</button>
+      </a>
+    <% end %>
 
     <% if current_user.getaways.include?(@getaway) %>
       <a data-remote="true" href="<%= new_getaway_getaway_photo_path(@getaway) %>">
@@ -85,7 +90,7 @@
           </a>
           <p>Add a activity</p>
         </div>
-      <% end %>  
+      <% end %>
 
       <div style="clear: both;"></div>
       <ul class="trip-info-list">
