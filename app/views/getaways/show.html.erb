@@ -8,14 +8,17 @@
     <button>Save as Itineraty</button>
 
     <a data-remote="true" href="<%= new_getaway_getaway_photo_path(@getaway) %>">
-      <h2>Add Photo</h2>
+      Add Photo
     </a>
     <a data-remote="true" href="<%= getaway_getaway_photos_path(@getaway) %>">
-      <h2>View Photos</h2>
+      View Photos
     </a>
   </header>
 
   <section id="trip-info">
+    <div class="grid_4">
+      <p class="trip-story"><%= @getaway.comment %></p>
+    </div>
     <div class="grid_3_1_first omega stayed">
       <h3>Where I stayed.</h3>
       <div class="add-cta">

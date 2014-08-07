@@ -168,7 +168,7 @@ button.close {
   display: block;
   padding: 10px;
   margin: 10px;
-  color: #ccc;
+  color: #999;
   border: none;
   width: 220px;
 }
@@ -329,6 +329,18 @@ p#date-placeholder, p#comment-placeholder {
 
 }
 
+.trip-header a {
+    background-color: $yellow-light;
+    border: none;
+    padding: 10px;
+    color: $purple;
+    margin: 0 5px;
+}
+
+.trip-header a:hover {
+  opacity: 0.85;
+}
+
 .profile-photo {
   width: 200px;
   height: 200px;
@@ -373,6 +385,7 @@ p#date-placeholder, p#comment-placeholder {
 
 .trip-info-detail {
   float: left;
+  font-weight: 200;
 }
 
 #trip-info ul {
@@ -424,6 +437,12 @@ p#date-placeholder, p#comment-placeholder {
 #add-stayed-form {
   display: none;
   color: $white;
+}
+
+.trip-story {
+  font-size: 18px;
+  padding: 80px;
+  line-height: 28px;
 }
 
 //::::::::::::::::::USER PROFILE:::::::::::::::::::::::::::::
@@ -669,4 +688,52 @@ a.remove-activity {
 
 .feed-user-trip-details a {
   color: $red;
+}
+
+//::::::::::::::::::NEW GETAWAY:::::::::::::::::::::::::::::
+#log-getaway {
+  width: 100%;
+  height: 100%;
+  min-height: 800px;
+  background: $red;
+  text-align: center;
+}
+
+#log-getaway p {
+  font-weight: 200;
+  color: $white;
+  font-size: 72px;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+#log-getaway input {
+  padding: 10px;
+  margin: 10px;
+  color: #999;
+  border: none;
+  width: 220px;
+}
+
+#log-getaway textarea {
+  width: 600px;
+  height: 200px;
+}
+
+#log-getaway h1 {
+  color: $white;
+}
+
+#log-getaway form {
+
+}
+
+#new-getaway-date-form input {
+  margin: 20px;
+}
+
+#log-getaway .form-submit {
+  background-color: $yellow-light;
+  color: $purple!important;
+  margin-top: 40px;
 }
