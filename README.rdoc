@@ -1,4 +1,12 @@
 == README
+Project 2 - Retreat App
+
+The Retreat App allows users to display where they spend their vacations. They can build a trip,
+post pictures, and log exactly what they did on a given trip. Furthermore, users can add friends, 
+keep track of where their friends spend their vacations and build an itinerary based off their 
+friend's trips so they can have a similar experience of their own. 
 
 ["User Stories"] https://trello.com/b/WIPz9HQ0/gen-project-2
 ["ERD's"] https://www.lucidchart.com/documents/edit/625a3379-0884-4a2c-add0-d55fc2e5ec07/0
+
+
