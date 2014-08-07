@@ -21,6 +21,12 @@ Rails.application.routes.draw do
   end
 
   resources :getaways do
+    resources :getaway_photos, only: [:new, :index]
+  end
+
+  resources :getaway_photos, except: [:new, :index]
+
+  resources :getaways do
     get '/new_activity/:category' => 'activities#new', as: 'new_activity'
   end
 

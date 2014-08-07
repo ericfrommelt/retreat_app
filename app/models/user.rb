@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_attached_file :avatar, :default_url => 'missing.png'
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
+
   has_many :getaways
   has_many :friendships
   has_many :friends, :through => :friendships

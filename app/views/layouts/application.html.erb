@@ -20,9 +20,7 @@
             <%= link_to 'Log In', login_path, id: 'login-link', remote: true %>
 
             <% else %>
-
               Hi, <%= link_to current_user.first_name, user_path(current_user) %> | <%= link_to 'Log Out', logout_path %>
-
             <% end %>
           </li>
         </ul>

@@ -6,6 +6,13 @@
     <h1><%= @getaway.city %>, <%= @getaway.country %></h1>
     <h2><%= @getaway.user.first_name %> <%= @getaway.user.last_name %></h2>
     <button>Save as Itineraty</button>
+
+    <a data-remote="true" href="<%= new_getaway_getaway_photo_path(@getaway) %>">
+      <h2>Add Photo</h2>
+    </a>
+    <a data-remote="true" href="<%= getaway_getaway_photos_path(@getaway) %>">
+      <h2>View Photos</h2>
+    </a>
   </header>
 
   <section id="trip-info">
@@ -40,6 +47,7 @@
         <% end %>
       </ul>
     </div>
+
     <div class="grid_3_1_last alpha played">
       <h3>Where I played.</h3>
       <div class="add-cta">

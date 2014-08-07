@@ -11,7 +11,6 @@ class GetawaysController < ApplicationController
 
   def show
     @getaway = Getaway.find(params[:id])
-
     @stay_activities = @getaway.activities.where(category: 'stay')
     @eat_activities = @getaway.activities.where(category: 'eat')
     @play_activities = @getaway.activities.where(category: 'play')
