@@ -38,6 +38,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def confirm_deletion
+    @user = User.find(params[:user_id])
+  end
+
   def destroy
     session[:current_user] = nil
     User.find(params[:id]).destroy

@@ -19,6 +19,19 @@ button {
   padding: 10px;
   color: $purple;
 }
+.edit-profile-button{
+  background-color: $yellow-light;
+  border: none;
+  padding: 10px;
+  color: $purple;
+}
+
+.delete-profile-button{
+  background-color: $yellow-light;
+  border: none;
+  padding: 10px;
+  color: $purple;
+}
 
 button:hover { opacity: .85; }
 
