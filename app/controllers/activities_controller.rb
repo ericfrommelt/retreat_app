@@ -24,6 +24,19 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def change_photo
+    @activity = Activity.find(params[:activity_id])
+  end
+
+  def update_photo
+    @activity = Activity.find(params[:activity_id]);
+    photo = GetawayPhoto.find(params[:photo_id]);
+    @activity.image_url = photo.photo.url
+    @activity.save
+
+    render json: @activity
+  end
+
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate, except: [:new, :create]
+  before_action :authorize, only: [:feed]
 
   def feed
     @user = User.find(params[:user_id])
@@ -17,7 +19,6 @@ class UsersController < ApplicationController
 
       # if user info is correct redirect user new route
       render :js => "window.location = '#{user_feed_path @user}'"
-      # redirect_to @user
     end
   end
 
@@ -32,11 +33,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(users_params)
-    if @user.save
-      redirect_to user_path(@user)
-    else
-      render :edit
-    end
   end
 
   def confirm_deletion
