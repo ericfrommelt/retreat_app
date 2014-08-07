@@ -31,7 +31,15 @@
 
   <section id="trip-info">
     <div class="grid_4">
-      <p class="trip-story"><%= @getaway.comment %></p>
+      <% if @getaway.comment %>
+        <p class="trip-story"><%= @getaway.comment %></p>
+      <% else %>
+        <div id="getaway-comment-button">
+          <a data-remote="true" href="<%= getaway_add_comment_path(@getaway) %>">
+            <button name="button">What do you have to say?</button>
+          </a>
+        </div>
+      <% end %>
     </div>
     <div class="grid_3_1_first omega stayed">
       <% if @getaway.departure_date > Date.today %>

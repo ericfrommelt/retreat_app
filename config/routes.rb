@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     get '/new_activity/:category' => 'activities#new', as: 'new_activity'
     get '/choose_date' => 'getaways#choose_date', as: 'choose_date'
     post '/copy' => 'getaways#copy', as: 'copy'
+    get '/add_comment' => 'getaways#add_comment', as: 'add_comment'
+    put '/update_comment' => 'getaways#update_comment', as: 'update_comment'
     resources :getaway_photos, only: [:new, :index]
   end
 
