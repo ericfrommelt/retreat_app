@@ -16,6 +16,27 @@ class GetawaysController < ApplicationController
     @play_activities = @getaway.activities.where(category: 'play')
   end
 
+  def edit
+    @getaway = Getaway.find(params[:id])
+  end
+
+  def update
+    @getaway = Getaway.find(params[:id])
+    @getaway.update(getaways_params)
+    if @getaway.save
+      redirect_to getaway_path(@getaway)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user = current_user
+    @getaway = Getaway.find(params[:id])
+    @getaway.destroy
+    redirect_to user_path(@user)
+  end
+
   def choose_date
     @getaway = Getaway.find(params[:getaway_id])
   end

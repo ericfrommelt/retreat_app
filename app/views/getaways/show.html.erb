@@ -14,13 +14,19 @@
 
     <% if current_user.getaways.include?(@getaway) %>
       <a data-remote="true" href="<%= new_getaway_getaway_photo_path(@getaway) %>">
-        <h2>Add Photo</h2>
+        Add Photo
       </a>
     <% end %>
 
     <a data-remote="true" href="<%= getaway_getaway_photos_path(@getaway) %>">
-      <h2>View Photos</h2>
+      View Photos
     </a>
+
+    <a data-remote="true" href="<%= edit_getaway_path(@getaway) %>">
+      Edit Getaway
+    </a>
+      <%= link_to "Delete Getaway", getaway_path(@getaway), method: 'delete' %>
+
 
     <% if @getaway.departure_date > Date.today %>
       <h2>Departure: <%= @getaway.departure_date.strftime('%m.%d.%Y') %></h2>
@@ -117,3 +123,4 @@
   <div id="activity-modal">
   </div>
 </div>
+<input style="display: none" class="new-autocomplete" id="autocomplete" name="autocomplete" placeholder="Where did you go?" type="text">

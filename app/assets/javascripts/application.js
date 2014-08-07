@@ -24,9 +24,7 @@ ready = function() {
   $('#timeline').on('click', '.read-more', loadShowGetaway);
   $('body').on('click', '.getaway-photo', changeActivityPhoto);
 
-  if (window.location.pathname === '/getaways/new') {
-    googlePlacesAutocomplete();
-  }
+  googlePlacesAutocomplete();
 
 };
 
