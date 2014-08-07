@@ -145,13 +145,13 @@ button.close {
   margin: 80px 0 0 30px;
 }
 
-#user-auth-modal label, #sign-up-modal label {
+#user-auth-modal label, #sign-up-modal label, #profile-modal label, #activity-modal label {
   color: #fff;
   font-size: 16px;
   padding: 5px;
 }
 
-#user-auth-modal input, #sign-up-modal input {
+#user-auth-modal input, #sign-up-modal input, #profile-modal input, #activity-modal input {
   display: block;
   padding: 10px;
   margin: 10px;
@@ -523,16 +523,71 @@ p#date-placeholder, p#comment-placeholder {
   background-color: $yellow-light;
   color: $purple!important;
   margin-top: 40px;
-  position: center;
+  position: absolute;
+  top: 1%;
+  left: 10%;
   margin-left: 250px;
   margin-right: 250px;
 }
 
 #activity-modal {
-  background-color: $yellow-light;
+  padding: 20px;
+  position: absolute;
+  top: 1%;
+  left: 10%;
+  width: 600px;
+  background-color: $dark-green;
   color: $purple!important;
   margin-top: 40px;
-  position: center;
   margin-left: 250px;
   margin-right: 250px;
 }
+
+#activity-modal textarea { margin-left: 10px; }
+
+.btn-submit {
+  background-color: $yellow-light;
+  color: $purple!important;
+}
+
+.activity-name {
+  color: $white;
+}
+a.remove-activity {
+  color: $white;
+  background-color: $red;
+  padding: 5px;
+}
+
+.delete-wrapper {
+  display: block;
+  clear: both;
+  position: relative;
+  top: 10px;
+}
+
+.trip-info-list li {
+  border-top: 1px dotted rgba(255, 255, 255, 0.3);
+  padding-top: 20px;
+}
+
+.activity-image {
+  display: block;
+  margin-right: 10px;
+}
+
+.activity-name {
+
+}
+
+/* position: absolute;
+top: 1%;
+left: 33%;
+z-index: 1000;
+display:none;
+width: 300px;
+height: 200px;
+padding: 60px;
+margin: 100px auto;
+background: \$purple-light;
+ */
