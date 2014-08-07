@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate
+  before_action :authorize, only: [:feed]
 
   def feed
     @users = User.all
