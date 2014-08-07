@@ -13,6 +13,10 @@
     <a data-remote="true" href="<%= getaway_getaway_photos_path(@getaway) %>">
       View Photos
     </a>
+    <a data-remote="true" href="<%= edit_getaway_path(@getaway) %>">
+      Edit Getaway
+    </a>
+      <%= link_to "Delete Getaway", getaway_path(@getaway), method: 'delete' %>
   </header>
 
   <section id="trip-info">
@@ -73,3 +77,4 @@
   <div id="activity-modal">
   </div>
 </div>
+<input style="display: none" class="new-autocomplete" id="autocomplete" name="autocomplete" placeholder="Where did you go?" type="text">
