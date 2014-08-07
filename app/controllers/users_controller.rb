@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def feed
-    @users = User.all
-    # @getaway = Getaway.all
+    @user = User.find(params[:user_id])
+    @friends = @user.friends
   end
 
   def new
