@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def feed
     @users = User.all
+    # @getaway = Getaway.all
   end
 
   def new

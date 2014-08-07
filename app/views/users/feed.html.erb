@@ -12,3 +12,15 @@
 </div>
 
 <%= link_to 'Add a Getaway', new_getaway_path %>
+
+<% @users.each do |user| %>
+  <% user.getaways.each do |getaway| %>
+    <li>
+      <%= getaway.user.first_name %>
+      <%= getaway.user.last_name %>
+      has gone to:
+      <%= getaway.city %>,
+      <%= getaway.country %>
+    </li>
+  <% end %>
+<% end %>
