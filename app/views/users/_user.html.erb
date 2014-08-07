@@ -1,7 +1,7 @@
 <% if user.id != current_user.id %>
   <div id="<%=dom_id(user)%>" class="user">
     <p class="name">
-      <%= image_tag user.image_url %>
+      <%= image_tag user.avatar.url %>
       <%= user.first_name %> <%= user.last_name %>
 
       <% if user.friend_requests.find_by(sender_id: current_user.id) %>
