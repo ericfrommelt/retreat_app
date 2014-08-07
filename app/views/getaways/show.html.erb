@@ -7,23 +7,38 @@
     <h2><%= @getaway.user.first_name %> <%= @getaway.user.last_name %></h2>
     <button>Save as Itineraty</button>
 
-    <a data-remote="true" href="<%= new_getaway_getaway_photo_path(@getaway) %>">
-      <h2>Add Photo</h2>
-    </a>
+    <% if current_user.getaways.include?(@getaway) %>
+      <a data-remote="true" href="<%= new_getaway_getaway_photo_path(@getaway) %>">
+        <h2>Add Photo</h2>
+      </a>
+    <% end %>
+
     <a data-remote="true" href="<%= getaway_getaway_photos_path(@getaway) %>">
       <h2>View Photos</h2>
     </a>
+
+    <% if @getaway.departure_date > Date.today %>
+      <h2>Departure: <%= @getaway.departure_date.strftime('%m.%d.%Y') %></h2>
+    <% else %>
+      <h2><%= @getaway.departure_date.strftime('%m.%Y') %></h2>
+    <% end %>
   </header>
 
   <section id="trip-info">
     <div class="grid_3_1_first omega stayed">
-      <h3>Where I stayed.</h3>
-      <div class="add-cta">
-        <a data-remote="true" href="<%= getaway_new_activity_path(@getaway.id, 'stay') %>">
-          <div class="add-stayed"></div>
-        </a>
-        <p>Add a place</p>
-      </div>
+      <% if @getaway.departure_date > Date.today %>
+        <h3>Places to stay.</h3>
+      <% else %>
+        <h3>Where I stayed.</h3>
+      <% end %>
+      <% if current_user.getaways.include?(@getaway) %>
+        <div class="add-cta">
+          <a data-remote="true" href="<%= getaway_new_activity_path(@getaway.id, 'stay') %>">
+            <div class="add-stayed"></div>
+          </a>
+          <p>Add a place</p>
+        </div>
+      <% end %>
       <div style="clear: both;"></div>
 
       <ul class="trip-info-list">
@@ -33,13 +48,21 @@
       </ul>
     </div>
     <div class="grid_3_1 alpha omega ate">
-      <h3>Where I ate.</h3>
-      <div class="add-cta">
-        <a data-remote="true" href="<%= getaway_new_activity_path(@getaway.id, 'eat') %>">
-          <div class="add-restaurant"></div>
-        </a>
-        <p>Add a restaurant</p>
-      </div>
+      <% if @getaway.departure_date > Date.today %>
+        <h3>Places to eat.</h3>
+      <% else %>
+        <h3>Where I ate.</h3>
+      <% end %>
+
+      <% if current_user.getaways.include?(@getaway) %>
+        <div class="add-cta">
+          <a data-remote="true" href="<%= getaway_new_activity_path(@getaway.id, 'eat') %>">
+            <div class="add-restaurant"></div>
+          </a>
+          <p>Add a restaurant</p>
+        </div>
+      <% end %>
+
       <div style="clear: both;"></div>
       <ul class="trip-info-list">
         <% @eat_activities.each do |activity| %>
@@ -49,13 +72,21 @@
     </div>
 
     <div class="grid_3_1_last alpha played">
-      <h3>Where I played.</h3>
-      <div class="add-cta">
-        <a data-remote="true" href="<%= getaway_new_activity_path(@getaway.id, 'play') %>">
-          <div class="add-activity"></div>
-        </a>
-        <p>Add a activity</p>
-      </div>
+      <% if @getaway.departure_date > Date.today %>
+        <h3>Things to do.</h3>
+      <% else %>
+        <h3>Where I played.</h3>
+      <% end %>
+
+      <% if current_user.getaways.include?(@getaway) %>
+        <div class="add-cta">
+          <a data-remote="true" href="<%= getaway_new_activity_path(@getaway.id, 'play') %>">
+            <div class="add-activity"></div>
+          </a>
+          <p>Add a activity</p>
+        </div>
+      <% end %>  
+
       <div style="clear: both;"></div>
       <ul class="trip-info-list">
         <% @play_activities.each do |activity| %>

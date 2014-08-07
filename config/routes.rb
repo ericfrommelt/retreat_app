@@ -22,15 +22,16 @@ Rails.application.routes.draw do
   end
 
   resources :getaways do
+    get '/new_activity/:category' => 'activities#new', as: 'new_activity'
     resources :getaway_photos, only: [:new, :index]
   end
 
-  resources :getaway_photos, except: [:new, :index]
-
-  resources :getaways do
-    get '/new_activity/:category' => 'activities#new', as: 'new_activity'
+  resources :getaway_photos, except: [:new, :index] do
   end
 
-  resources :activities, only: [:index, :create, :destroy]
+  resources :activities, only: [:index, :create, :destroy] do
+    get '/change_photo' => 'activities#change_photo', as: 'change_photo'
+    put '/update_photo' => 'activities#update_photo', as: 'update_photo'
+  end
 
 end
