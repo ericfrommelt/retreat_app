@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :authorize, only: [:feed]
 
   def feed
-    @users = User.all
+    @user = User.find(params[:user_id])
+    @friends = @user.friends
   end
 
   def new

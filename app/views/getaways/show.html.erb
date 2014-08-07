@@ -1,7 +1,7 @@
 <section id="trip-detail" class="container">
   <header class="grid_4 trip-header">
     <figure class="profile-photo">
-      <%= image_tag @getaway.user.image_url %>
+      <%= image_tag @getaway.user.avatar.url %>
     </figure>
     <h1><%= @getaway.city %>, <%= @getaway.country %></h1>
     <h2><%= @getaway.user.first_name %> <%= @getaway.user.last_name %></h2>
@@ -30,6 +30,9 @@
   </header>
 
   <section id="trip-info">
+    <div class="grid_4">
+      <p class="trip-story"><%= @getaway.comment %></p>
+    </div>
     <div class="grid_3_1_first omega stayed">
       <% if @getaway.departure_date > Date.today %>
         <h3>Places to stay.</h3>
