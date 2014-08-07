@@ -592,14 +592,81 @@ a.remove-activity {
 
 }
 
-/* position: absolute;
-top: 1%;
-left: 33%;
-z-index: 1000;
-display:none;
-width: 300px;
-height: 200px;
-padding: 60px;
-margin: 100px auto;
-background: \$purple-light;
- */
+//::::::::::::::::::USER FEED:::::::::::::::::::::::::::::
+#user-feed-bg {
+  min-height: 800px;
+  background-color: rgba(255, 255, 255, 0.4);
+  background-image: image-url("paris.jpg");
+  background-size: cover;
+  width: 100%;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+
+}
+
+#user-feed {}
+#user-feed-header {
+  background: $red;
+}
+#user-feed-header h1 {
+  font-size: 60px;
+}
+.log-trip-cta {
+  text-align: center;
+  color: $white;
+  padding-bottom: 20px;
+}
+
+.feed-log-trip {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background-color: $purple;
+  border-radius: 50%;
+  background-image: image-url("plus.svg");
+  transition: all 0.4s ease;
+}
+
+.feed-log-trip:hover {
+  transform: rotate(90deg)!important;
+}
+
+#feed {
+  background: $white;
+  opacity: 0.96;
+}
+.feed-content {
+
+}
+
+#feed ul {
+  list-style: none;
+}
+
+#feed li {
+  margin-bottom: 60px;
+}
+.feed-user-profile-photo {
+  width: 70px;
+  height: 70px;
+  background: $red;
+  float: left;
+  margin-right: 30px;
+}
+.feed-user-trip-details {}
+
+.feed-user-trip-details h3 {
+  padding-left: 30px;
+  font-size: 30px;
+  margin: 0;
+}
+
+.feed-user-trip-details h5 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.feed-user-trip-details a {
+  color: $red;
+}

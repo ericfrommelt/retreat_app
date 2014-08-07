@@ -1,14 +1,88 @@
+    <div id="user-feed-bg"></div>
 
-<div id="search-div">
-  <%= form_tag('/search_friends', remote: true, method: :get) do %>
-      <%= text_field_tag :search %>
-      <%= submit_tag 'Search Friends' %>
-  <% end %>
-</div>
+    <section id="user-feed" class="container">
+      <header id="user-feed-header">
+        <div class="grid_3"><h1>Where have your friends have been?</h1></div>
+        <div class="grid_1 log-trip-cta">
+          <h2>Log your own trip</h2>
+          <%= link_to(new_getaway_path) do %>
+            <div class="feed-log-trip"></div>
+          <% end %>
 
-<div class="modal">
-  <div id="feed-modal">
-  </div>
-</div>
+        </div>
+      </header>
 
-<%= link_to 'Add a Getaway', new_getaway_path %>
+      <div id="feed" class="grid_3">
+        <ul>
+          <li>
+            <div class="feed-content">
+              <div class="feed-user-profile-photo"></div>
+              <div class="feed-user-trip-details">
+                <h3>Gadi</h3>
+                <h5>Paris, France</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et fermentum odio, nec condimentum magna. Nunc ac euismod erat, ut facilisis lorem. Nunc ipsum velit, iaculis in lacus a, malesuada fermentum eros. <a href="#">Explore Gadi's trip</a></p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="feed-content">
+              <div class="feed-user-profile-photo"></div>
+              <div class="feed-user-trip-details">
+                <h3>Eric</h3>
+                <h5>Narrowsburg, NY</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et fermentum odio, nec condimentum magna. Nunc ac euismod erat, ut facilisis lorem. Nunc ipsum velit, iaculis in lacus a, malesuada fermentum eros. <a href="#">Explore Eric's trip</a></p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="feed-content">
+              <div class="feed-user-profile-photo"></div>
+              <div class="feed-user-trip-details">
+                <h3>Naji</h3>
+                <h5>Osaka, Japan</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et fermentum odio, nec condimentum magna. Nunc ac euismod erat, ut facilisis lorem. Nunc ipsum velit, iaculis in lacus a, malesuada fermentum eros. <a href="#">Explore Naji's trip</a></p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="feed-content">
+              <div class="feed-user-profile-photo"></div>
+              <div class="feed-user-trip-details">
+                <h3>Monica</h3>
+                <h5>Berlin, Germany</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et fermentum odio, nec condimentum magna. Nunc ac euismod erat, ut facilisis lorem. Nunc ipsum velit, iaculis in lacus a, malesuada fermentum eros. <a href="#">Explore Monica's trip</a></p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="feed-content">
+              <div class="feed-user-profile-photo"></div>
+              <div class="feed-user-trip-details">
+                <h3>Eddie</h3>
+                <h5>Auckland, New Zealand</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et fermentum odio, nec condimentum magna. Nunc ac euismod erat, ut facilisis lorem. Nunc ipsum velit, iaculis in lacus a, malesuada fermentum eros. <a href="#">Explore Eddie's trip</a></p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div id="feed-utilities">
+
+      <div id="search-div">
+        <%= form_tag('/search_friends', remote: true, method: :get) do %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'Search Friends' %>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="modal">
+      <div id="feed-modal">
+    </div>
