@@ -5,14 +5,16 @@
     </figure>
     <h1><%= @getaway.city %>, <%= @getaway.country %></h1>
     <h2><%= @getaway.user.first_name %> <%= @getaway.user.last_name %></h2>
-    <button>Save as Itineraty</button>
 
-    <a data-remote="true" href="<%= new_getaway_getaway_photo_path(@getaway) %>">
-      Add Photo
-    </a>
-    <a data-remote="true" href="<%= getaway_getaway_photos_path(@getaway) %>">
-      View Photos
-    </a>
+    <div class="getaway-nav">
+      <a href="#">Save as Itineraty</a>
+      <a data-remote="true" href="<%= new_getaway_getaway_photo_path(@getaway) %>">
+        Add Photo
+      </a>
+      <a data-remote="true" href="<%= getaway_getaway_photos_path(@getaway) %>">
+        View Photos
+      </a>
+    </div>
   </header>
 
   <section id="trip-info">

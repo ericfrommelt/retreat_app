@@ -13,7 +13,7 @@
   </header>
   <div id="user-info" class="grid_1">
     <%= link_to @user.email %>
-    <h2><%= link_to "My News Feed", user_feed_path(@user) %><h2>
+    <h2><%= link_to "My Feed", user_feed_path(@user) %><h2>
     <h2><%= link_to 'My Friends', user_friends_path(@user), remote: true %></h2>
     <h2><%= link_to 'Friend Requests', friend_requests_path, remote: true %></h2>
   </div>
