@@ -50,4 +50,4 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 #paperclip
-gem "paperclip", "~> 4.1" 
+gem "paperclip", "~> 4.1"

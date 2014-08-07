@@ -20,8 +20,11 @@ Rails.application.routes.draw do
     post 'reject', on: :member
   end
 
-  resources :getaways
-  resources :getaway_photos
+  resources :getaways do
+    resources :getaway_photos, only: [:new, :index]
+  end
+
+  resources :getaway_photos, except: [:new, :index]
 
   resources :getaways do
     get '/new_activity/:category' => 'activities#new', as: 'new_activity'

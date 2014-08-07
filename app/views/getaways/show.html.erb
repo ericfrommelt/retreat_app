@@ -6,6 +6,13 @@
     <h1><%= @getaway.city %>, <%= @getaway.country %></h1>
     <h2><%= @getaway.user.first_name %> <%= @getaway.user.last_name %></h2>
     <button>Save as Itineraty</button>
+
+    <a data-remote="true" href="<%= new_getaway_getaway_photo_path(@getaway) %>">
+      <h2>Add Photo</h2>
+    </a>
+    <a data-remote="true" href="<%= getaway_getaway_photos_path(@getaway) %>">
+      <h2>View Photos</h2>
+    </a>
   </header>
 
   <section id="trip-info">
@@ -41,18 +48,6 @@
       </ul>
     </div>
 
-    <div id="add-photos">
-      <%= form_for GetawayPhoto.new, :html => { :multipart => true } do |f| %>
-          <%= f.file_field :photo %>
-          <%= f.hidden_field :getaway_id, value: @getaway.id %>
-          <%= f.submit %>
-      <% end %>
-    </div>
-
-    <div id="view-photos">
-      <%= link_to "View Photos" %>
-    </div>
-
     <div class="grid_3_1_last alpha played">
       <h3>Where I played.</h3>
       <div class="add-cta">
@@ -75,4 +70,3 @@
   <div id="activity-modal">
   </div>
 </div>
->>>>>>> cf80bf68b87d551ed7c87ae8666fa2d8eb8b6fe0

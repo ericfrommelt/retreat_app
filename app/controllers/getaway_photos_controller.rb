@@ -1,17 +1,18 @@
 class GetawayPhotosController < ApplicationController
 
   def index
-    @photos = GetawayPhoto.all
+    getaway = Getaway.find(params[:getaway_id])
+    @photos = getaway.getaway_photos
   end
 
   def new
     @photo = GetawayPhoto.new
-    @getaways = Getaway.all
+    @getaway = Getaway.find(params[:getaway_id])
   end
 
 
   def create
-    @photo = GetawayPhoto.new(photo_params)
+    @photo = GetawayPhoto.create(photo_params)
     @getaway = @photo.getaway
     redirect_to getaway_path(@getaway)
   end
