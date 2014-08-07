@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, except: [:index] do
     get '/feed' => 'users#feed', as: 'feed'
     get '/friends' => 'users#friends', as: 'friends'
+    get '/confirm_deletion' => 'users#confirm_deletion', as: 'confirm_deletion'
   end
 
 
