@@ -4,7 +4,7 @@ var friend_requests = '';
 profileModal.empty();
 profileModal.append('<button class="close">close</button>');
 
-<%= @friend_requests.each do |friend_request| %>
+<% @friend_requests.each do |friend_request| %>
   friend_requests += '<%= j(render partial: "users/user", locals: {user: friend_request.sender}) %>';
 <% end %>
 

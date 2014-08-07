@@ -16,6 +16,53 @@ class GetawaysController < ApplicationController
     @play_activities = @getaway.activities.where(category: 'play')
   end
 
+  def edit
+    @getaway = Getaway.find(params[:id])
+  end
+
+  def update
+    @getaway = Getaway.find(params[:id])
+    @getaway.update(getaways_params)
+    if @getaway.save
+      redirect_to getaway_path(@getaway)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user = current_user
+    @getaway = Getaway.find(params[:id])
+    @getaway.destroy
+    redirect_to user_path(@user)
+  end
+
+  def choose_date
+    @getaway = Getaway.find(params[:getaway_id])
+  end
+
+  def copy
+    # copying over a getaway from one user to another
+    @getaway = Getaway.find(params[:getaway_id])
+    new_getaway = @getaway.dup
+    new_getaway.departure_date = params[:new_date]
+    new_getaway.comment = nil
+    new_getaway.save
+
+    @getaway.activities.each do |activity|
+      new_activity = activity.dup
+      new_activity.comment = nil
+      new_activity.image_url = 'http://images.fineartamerica.com/images-medium-large/palm-tree-silhouettes-sunset-waikiki-natural-selection-craig-tuttle.jpg'
+      new_activity.save
+
+      new_getaway.activities << new_activity
+    end
+
+    current_user.getaways << new_getaway
+
+    redirect_to getaway_path(new_getaway)
+  end
+
   def getaways_params
     params.require(:getaway).permit(:city, :country, :comment, :departure_date, :user_id)
   end

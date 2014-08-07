@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize
-    if params[:id] != session[:current_user] && params[:user_id] != session[:current_user]
+    if params[:id].to_i != session[:current_user] && params[:user_id].to_i != session[:current_user]
       redirect_to root_path
     end
   end

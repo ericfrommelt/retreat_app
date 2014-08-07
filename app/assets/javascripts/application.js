@@ -22,6 +22,7 @@ ready = function() {
   $('body').on('click', '.close', closeModal);
   $('#timeline').on('click', '.log-trip', loadNewGetaway);
   $('#timeline').on('click', '.read-more', loadShowGetaway);
+  $('body').on('click', '.getaway-photo', changeActivityPhoto);
 
   googlePlacesAutocomplete();
 
@@ -39,6 +40,17 @@ function loadNewGetaway() {
 function loadShowGetaway() {
   var getawayID = $(this).closest('.timeline-block').data('id');
   location.href = '/getaways/' + getawayID;
+}
+
+function changeActivityPhoto() {
+  var photo = $(this);
+  $.ajax('/activities/'+ photo.data('activityid') +'/update_photo', {
+    type: 'PUT',
+    data: {photo_id: photo.data('photoid')}
+  }).done(function(data) {
+    $('.modal').hide();
+    $('#activity_'+ data.id).find('img').attr('src', data.image_url);
+  });
 }
 
 function googlePlacesAutocomplete() {
@@ -72,5 +84,6 @@ function googlePlacesAutocomplete() {
 }
 
 function closeModal() {
+  $(this).remove();
   $('.modal').hide();
 }
