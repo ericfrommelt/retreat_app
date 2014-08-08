@@ -635,7 +635,7 @@ p#date-placeholder, p#comment-placeholder {
 a.remove-activity {
   color: $white;
   background-color: $purple;
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 .delete-wrapper {
@@ -648,6 +648,11 @@ a.remove-activity {
 .trip-info-list li {
   border-top: 1px dotted rgba(255, 255, 255, 0.3);
   padding-top: 20px;
+  margin-bottom:40px;
+}
+
+.trip-info-list li p {
+  font-size: 20px;
 }
 
 .activity-image {
