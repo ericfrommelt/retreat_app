@@ -413,6 +413,15 @@ p#date-placeholder, p#comment-placeholder {
   display: block;
 }
 
+.trip-info-list li .activity-photo {
+  color: $white;
+  opacity: 0.6;
+}
+
+.trip-info-list li .activity-photo:hover {
+  opacity: 1;
+}
+
 .trip-info-list figure {
   margin: 0;
   display: inline-block;
@@ -625,7 +634,7 @@ p#date-placeholder, p#comment-placeholder {
 }
 a.remove-activity {
   color: $white;
-  background-color: $red;
+  background-color: $purple;
   padding: 5px;
 }
 

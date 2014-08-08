@@ -2,7 +2,7 @@
   <figure><%= image_tag activity.image_url %></figure>
 
   <% if current_user.getaways.include?(getaway) %>
-    <%= link_to 'Change Activity Photo', activity_change_photo_path(activity), remote: true %>
+    <%= link_to 'Change Photo', activity_change_photo_path(activity), class: 'activity-photo', remote: true %>
   <% end %>
 
   <p><%= activity.name %></p>
