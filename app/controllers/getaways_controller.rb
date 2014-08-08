@@ -41,6 +41,16 @@ class GetawaysController < ApplicationController
     @getaway = Getaway.find(params[:getaway_id])
   end
 
+  def add_comment
+    @getaway = Getaway.find(params[:getaway_id])
+  end
+
+  def update_comment
+    @getaway = Getaway.find(params[:getaway_id])
+    @getaway.comment = params[:new_comment]
+    @getaway.save
+  end
+
   def copy
     # copying over a getaway from one user to another
     @getaway = Getaway.find(params[:getaway_id])
