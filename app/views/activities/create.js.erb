@@ -9,4 +9,4 @@ if ('<%= @activity.category %>' === 'play') {
   activityList = $('.ate').find('.trip-info-list');
 }
 
-activityList.append('<%= j(render partial: "activities/activity", locals: {activity: @activity}) %>')
+activityList.append('<%= j(render partial: "activities/activity", locals: {getaway: @activity.getaway, activity: @activity}) %>')

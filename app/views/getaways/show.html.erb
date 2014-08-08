@@ -1,5 +1,5 @@
 <section id="trip-detail" class="container">
-  <header class="grid_4 trip-header">
+  <header data-randomphotourl="<%= @random_photo_url %>" class="grid_4 trip-header">
     <figure class="profile-photo">
       <%= image_tag @getaway.user.avatar.url %>
     </figure>
@@ -23,11 +23,15 @@
         View Photos
       </a>
 
+    <% if current_user.getaways.include?(@getaway) %>
       <a data-remote="true" href="<%= edit_getaway_path(@getaway) %>">
         Edit Getaway
       </a>
-        <%= link_to "Delete Getaway", getaway_path(@getaway), method: 'delete' %>
+    <% end %>
 
+    <% if current_user.getaways.include?(@getaway) %>
+      <%= link_to "Delete Getaway", getaway_path(@getaway), method: 'delete' %>
+    <% end %>
 
       <% if @getaway.departure_date > Date.today %>
         <h2>Departure: <%= @getaway.departure_date.strftime('%m.%d.%Y') %></h2>
@@ -41,6 +45,8 @@
     <div class="grid_4">
       <% if @getaway.comment %>
         <p class="trip-story"><%= @getaway.comment %></p>
+      <% elsif !current_user.getaways.include?(@getaway) %>
+        <p class="trip-story"><%= @getaway.user.first_name %> has not commented yet.</p>
       <% else %>
         <div id="getaway-comment-button">
           <a data-remote="true" href="<%= getaway_add_comment_path(@getaway) %>">
@@ -67,7 +73,7 @@
 
       <ul class="trip-info-list">
         <% @stay_activities.each do |activity| %>
-          <%= render partial: 'activities/activity', locals: {activity: activity} %>
+          <%= render partial: 'activities/activity', locals: {getaway: @getaway, activity: activity} %>
         <% end %>
       </ul>
     </div>
@@ -90,7 +96,7 @@
       <div style="clear: both;"></div>
       <ul class="trip-info-list">
         <% @eat_activities.each do |activity| %>
-          <%= render partial: 'activities/activity', locals: {activity: activity} %>
+          <%= render partial: 'activities/activity', locals: {getaway: @getaway, activity: activity} %>
         <% end %>
       </ul>
     </div>
@@ -114,7 +120,7 @@
       <div style="clear: both;"></div>
       <ul class="trip-info-list">
         <% @play_activities.each do |activity| %>
-          <%= render partial: 'activities/activity', locals: {activity: activity} %>
+          <%= render partial: 'activities/activity', locals: {getaway: @getaway, activity: activity} %>
         <% end %>
       </ul>
     </div>

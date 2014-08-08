@@ -1,9 +1,16 @@
 <li id="<%= dom_id(activity) %>">
   <figure><%= image_tag activity.image_url %></figure>
-  <%= link_to 'Change Activity Photo', activity_change_photo_path(activity), remote: true %>
+
+  <% if current_user.getaways.include?(getaway) %>
+    <%= link_to 'Change Activity Photo', activity_change_photo_path(activity), remote: true %>
+  <% end %>
+
   <p><%= activity.name %></p>
   <div class="trip-info-detail"><%= activity.comment %></div>
-  <div class="delete-wrapper">
-    <%= link_to 'Delete', activity_path(activity), method: :delete, remote: true, class: 'remove-activity' %>
-  </div>
+
+  <% if current_user.getaways.include?(getaway) %>
+    <div class="delete-wrapper">
+      <%= link_to 'Delete', activity_path(activity), method: :delete, remote: true, class: 'remove-activity' %>
+    </div>
+  <% end %>
 </li>

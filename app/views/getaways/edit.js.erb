@@ -12,7 +12,10 @@ activityModal.append('<button class="close">Close</button>');
 <% end %>
 
 activityModal.append('<%= j(render partial: "editform", locals: {getaway: @getaway}) %>');
-activityModal.find('#autocomplete').replaceWith($('.new-autocomplete'));
-$('.new-autocomplete').show();
+
+if (activityModal.find('.new-autocomplete').length === 0) {
+  activityModal.find('#autocomplete').replaceWith($('.new-autocomplete'));
+  $('.new-autocomplete').show();
+}
 
 $('.modal').show();
