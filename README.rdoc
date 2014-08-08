@@ -1,28 +1,12 @@
 == README
+Project 2 - Retreat App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Retreat App allows users to display where they spend their vacations. They can build a trip,
+post pictures, and log exactly what they did on a given trip. Furthermore, users can add friends, 
+keep track of where their friends spend their vacations and build an itinerary based off their 
+friend's trips so they can have a similar experience of their own. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+["User Stories"] https://trello.com/b/WIPz9HQ0/gen-project-2
+["ERD's"] https://www.lucidchart.com/documents/edit/625a3379-0884-4a2c-add0-d55fc2e5ec07/0
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
