@@ -5,6 +5,7 @@ $dark-green: #29666f;
 $light-green: #00968f;
 $yellow-light: #f7e8a0;
 $white: #fff;
+$yellow-dark: #beb58a;
 
 img { max-width: 100%; }
 a { text-decoration: none }
@@ -13,29 +14,31 @@ body {
   font-style: normal;
   font-weight: 400;
 }
-button {
+
+@mixin yellow-button {
   background-color: $yellow-light;
   border: none;
   padding: 10px;
   color: $purple;
 }
+button {
+  @include yellow-button;
+}
 .edit-profile-button{
-  background-color: $yellow-light;
-  border: none;
-  padding: 10px;
-  color: $purple;
+  @include yellow-button;
 }
 
 .delete-profile-button{
-  background-color: $yellow-light;
-  border: none;
-  padding: 10px;
-  color: $purple;
+  @include yellow-button;
 }
 
 button:hover { opacity: .85; }
 
 h1, h2, h3, h4, h5 { font-weight: 200; }
+
+a {
+  transition: all 0.4s ease;
+}
 
 
 //::::::::::::::::::GRID::::::::::::::::::::::::::::::::
@@ -111,6 +114,11 @@ h1, h2, h3, h4, h5 { font-weight: 200; }
 
 .navigation li {
   color: $white;
+  float: left;
+}
+
+.nav-space {
+  padding: 0 10px;
 }
 
 .navigation a {
@@ -166,7 +174,7 @@ button.close {
 
 #user-auth-modal input, #sign-up-modal input, #profile-modal input, #activity-modal input {
   display: block;
-  padding: 10px;
+  padding: 10Fpx;
   margin: 10px;
   color: #999;
   border: none;
@@ -188,7 +196,7 @@ button.login-button:hover {
 
 .modal h1 {
   color: $white;
-  font-weight: 400;
+  font-weight: 200;
   margin: 0;
 }
 
@@ -330,15 +338,22 @@ p#date-placeholder, p#comment-placeholder {
 }
 
 .trip-header a {
-    background-color: $yellow-light;
+    background-color: $white;
     border: none;
     padding: 10px;
     color: $purple;
     margin: 0 5px;
+    opacity: 0.85;
 }
 
 .trip-header a:hover {
-  opacity: 0.85;
+  opacity: 1.0;
+}
+
+.getaway-nav {
+  position: absolute;
+  right: 20px;
+  top: 320px;
 }
 
 .profile-photo {
@@ -380,7 +395,7 @@ p#date-placeholder, p#comment-placeholder {
 }
 
 .played {
-  background-color: $yellow-light;
+  background-color: $yellow-dark;
 }
 
 .trip-info-detail {
@@ -390,7 +405,7 @@ p#date-placeholder, p#comment-placeholder {
 
 #trip-info ul {
   list-style: none;
-  padding: 20px;
+  padding: 40px;
 }
 
 .trip-info-list li {
@@ -458,6 +473,13 @@ p#date-placeholder, p#comment-placeholder {
   background-color: #ccc;
 }
 
+
+#user-profile-header form {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+
 #user-info { }
 
 #timeline {
@@ -485,7 +507,7 @@ p#date-placeholder, p#comment-placeholder {
 
 .log-trip {
   position: relative;
-  left: 45%;
+  left: 572px;
 }
 
 .timeline-image {
@@ -559,6 +581,19 @@ p#date-placeholder, p#comment-placeholder {
   left: 10%;
   margin-left: 250px;
   margin-right: 250px;
+  width: 600px;
+  padding: 20px;
+}
+
+#profile-modal input.form-submit {
+  background: $red;
+  color: $white!important;
+  opacity: 0.85;
+  transition: all 0.4s ease;
+}
+
+#profile-modal input.form-submit:hover {
+  opacity: 1.0;
 }
 
 #activity-modal {
@@ -572,6 +607,10 @@ p#date-placeholder, p#comment-placeholder {
   margin-top: 40px;
   margin-left: 250px;
   margin-right: 250px;
+}
+
+#activity-modal h1 {
+  text-weight: 200!important;
 }
 
 #activity-modal textarea { margin-left: 10px; }
@@ -630,10 +669,11 @@ a.remove-activity {
 }
 #user-feed-header h1 {
   font-size: 60px;
+  color: $purple;
 }
 .log-trip-cta {
   text-align: center;
-  color: $white;
+  color: $purple;
   padding-bottom: 20px;
 }
 
@@ -690,8 +730,10 @@ a.remove-activity {
   color: $red;
 }
 
+
 //::::::::::::::::::NEW GETAWAY:::::::::::::::::::::::::::::
 #log-getaway {
+  padding-top: 200px;
   width: 100%;
   height: 100%;
   min-height: 800px;
@@ -722,18 +764,42 @@ a.remove-activity {
 
 #log-getaway h1 {
   color: $white;
+  opacity: 0.7;
 }
 
-#log-getaway form {
-
-}
 
 #new-getaway-date-form input {
   margin: 20px;
+}
+
+
+#autocomplete:focus {
+
+  transition: width 0.4s ease;
+    border: none;outline: none;
+    box-shadow: none;
+    padding-left: 15px;
+    cursor: text;
+    width: 400px;
+    border-radius: auto;
+    background: rgb(235, 235, 235);
+    color: black;
 }
 
 #log-getaway .form-submit {
   background-color: $yellow-light;
   color: $purple!important;
   margin-top: 40px;
+}
+
+#search-div input {
+  padding: 10px;
+  margin: 10px;
+  color: #999;
+  border: none;
+  width: 220px;
+}
+
+#getaway-comment-button {
+
 }

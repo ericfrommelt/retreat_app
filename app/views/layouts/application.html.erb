@@ -15,14 +15,28 @@
       <a href="/"><div class="logo">Retreat</div></a>
       <div class="navigation">
         <ul>
-          <li>
-            <% if !current_user %>
-            <%= link_to 'Log In', login_path, id: 'login-link', remote: true %>
 
-            <% else %>
-              Hi, <%= link_to current_user.first_name, user_path(current_user) %> | <%= link_to 'Log Out', logout_path %>
-            <% end %>
+          <% if !current_user %>
+          <li>
+            <%= link_to 'Log In', login_path, id: 'login-link', remote: true %>
           </li>
+            <% else %>
+          <li>
+            Hi, <%= link_to current_user.first_name, user_path(current_user) %> <span class="nav-space">|</span>
+          </li>
+          <li>
+            <%= link_to "My Feed", user_feed_path(current_user) %> <span class="nav-space">|</span>
+          </li>
+          <li>
+            <%= link_to 'My Getaways', user_path(current_user) %> <span class="nav-space">|</span>
+          </li>
+          <li>
+            <%= link_to 'Log a trip', new_getaway_path(current_user) %> <span class="nav-space">|</span>
+          </li>
+          <li>
+            <%= link_to 'Log Out', logout_path %>
+          </li>
+            <% end %>
         </ul>
       </div>
     </div>
