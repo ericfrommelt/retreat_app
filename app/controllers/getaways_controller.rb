@@ -11,6 +11,12 @@ class GetawaysController < ApplicationController
 
   def show
     @getaway = Getaway.find(params[:id])
+    @random_photo_url = 'none'
+
+    if @getaway.getaway_photos.count > 0
+      @random_photo_url = @getaway.getaway_photos.sample.photo.url
+    end
+
     @stay_activities = @getaway.activities.where(category: 'stay')
     @eat_activities = @getaway.activities.where(category: 'eat')
     @play_activities = @getaway.activities.where(category: 'play')

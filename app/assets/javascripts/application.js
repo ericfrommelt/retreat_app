@@ -24,6 +24,7 @@ ready = function() {
   $('#timeline').on('click', '.read-more', loadShowGetaway);
   $('body').on('click', '.getaway-photo', changeActivityPhoto);
 
+  changeBackgroundImage();
   googlePlacesAutocomplete();
 
 };
@@ -81,6 +82,15 @@ function googlePlacesAutocomplete() {
     $('#new-getaway-date-form').append('<input type="submit" value="Save Trip">');
 
   });
+}
+
+function changeBackgroundImage() {
+  var tripHeader = $('.trip-header')
+  var photoUrl = tripHeader.data('randomphotourl');
+
+  if (photoUrl !== 'none') {
+    tripHeader.css('background-image', 'url("'+ photoUrl +'")');
+  }
 }
 
 function closeModal() {
