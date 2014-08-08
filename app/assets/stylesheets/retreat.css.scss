@@ -5,6 +5,7 @@ $dark-green: #29666f;
 $light-green: #00968f;
 $yellow-light: #f7e8a0;
 $white: #fff;
+$yellow-dark: #beb58a;
 
 img { max-width: 100%; }
 a { text-decoration: none }
@@ -173,7 +174,7 @@ button.close {
 
 #user-auth-modal input, #sign-up-modal input, #profile-modal input, #activity-modal input {
   display: block;
-  padding: 10px;
+  padding: 10Fpx;
   margin: 10px;
   color: #999;
   border: none;
@@ -195,7 +196,7 @@ button.login-button:hover {
 
 .modal h1 {
   color: $white;
-  font-weight: 400;
+  font-weight: 200;
   margin: 0;
 }
 
@@ -394,7 +395,7 @@ p#date-placeholder, p#comment-placeholder {
 }
 
 .played {
-  background-color: $yellow-light;
+  background-color: $yellow-dark;
 }
 
 .trip-info-detail {
@@ -608,6 +609,10 @@ p#date-placeholder, p#comment-placeholder {
   margin-right: 250px;
 }
 
+#activity-modal h1 {
+  text-weight: 200!important;
+}
+
 #activity-modal textarea { margin-left: 10px; }
 
 .btn-submit {
@@ -728,6 +733,7 @@ a.remove-activity {
 
 //::::::::::::::::::NEW GETAWAY:::::::::::::::::::::::::::::
 #log-getaway {
+  padding-top: 200px;
   width: 100%;
   height: 100%;
   min-height: 800px;
@@ -758,14 +764,26 @@ a.remove-activity {
 
 #log-getaway h1 {
   color: $white;
+  opacity: 0.7;
 }
 
-#log-getaway form {
-
-}
 
 #new-getaway-date-form input {
   margin: 20px;
+}
+
+
+#autocomplete:focus {
+
+  transition: width 0.4s ease;
+    border: none;outline: none;
+    box-shadow: none;
+    padding-left: 15px;
+    cursor: text;
+    width: 400px;
+    border-radius: auto;
+    background: rgb(235, 235, 235);
+    color: black;
 }
 
 #log-getaway .form-submit {

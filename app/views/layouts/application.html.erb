@@ -25,10 +25,13 @@
             Hi, <%= link_to current_user.first_name, user_path(current_user) %> <span class="nav-space">|</span>
           </li>
           <li>
-            <%= link_to "My Feed", user_feed_path(@user) %> <span class="nav-space">|</span>
+            <%= link_to "My Feed", user_feed_path(current_user) %> <span class="nav-space">|</span>
           </li>
           <li>
             <%= link_to 'My Getaways', user_path(current_user) %> <span class="nav-space">|</span>
+          </li>
+          <li>
+            <%= link_to 'Log a trip', new_getaway_path(current_user) %> <span class="nav-space">|</span>
           </li>
           <li>
             <%= link_to 'Log Out', logout_path %>

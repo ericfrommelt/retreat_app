@@ -1,10 +1,10 @@
 var activityModal = $('#activity-modal');
 
 activityModal.empty();
-activityModal.append('<button class="close">close</button>');
+activityModal.append('<button class="close">Close</button>');
 
 <% if @category == 'play' %>
-  activityModal.css('background', '#f7e8a0')
+  activityModal.css('background', '#beb58a')
 <% elsif @category == 'stay' %>
   activityModal.css('background', '#29666f')
 <% else @category == 'eat' %>
