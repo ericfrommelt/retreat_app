@@ -9,7 +9,7 @@
     <div class="getaway-nav">
       <% if @getaway.user != current_user %>
         <a data-remote="true" href="<%= getaway_choose_date_path(@getaway) %>">
-          <button>Save as Itinerary</button>
+          Save as Itinerary
         </a>
       <% end %>
 
@@ -27,9 +27,7 @@
       <a data-remote="true" href="<%= edit_getaway_path(@getaway) %>">
         Edit Getaway
       </a>
-    <% end %>
 
-    <% if current_user.getaways.include?(@getaway) %>
       <%= link_to "Delete Getaway", getaway_path(@getaway), method: 'delete' %>
     <% end %>
 
