@@ -13,4 +13,4 @@ activityModal.append('<button class="close">close</button>');
 
 activityModal.append('<%= j(render partial: "activities/form", locals: {category: @category, getaway_id: @getaway_id, question: @question}) %>')
 
-$('.modal').show();
+$('.modal').fadeIn('fast');

@@ -7,7 +7,7 @@
   <header id="user-profile-header" class="grid_3">
     <figure class="profile-photo"><%= image_tag @user.avatar.url %></figure>
     <h1 id="user-name"><%= @user.first_name  %> <%= @user.last_name %></h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pulvinar lobortis imperdiet. Nam at mauris et justo mattis tempor sit amet vel augue. Integer vel ligula nec urna feugiat pulvinar. Phasellus congue tortor arcu, eu lobortis ligula tincidunt vitae. Mauris mollis urna ac elit condimentum volutpat.</p>
+    <p><%= @user.comment %></p>
 
     <% if current_user == @user %>
       <a data-remote="true" href="<%= edit_user_path(@user) %>">

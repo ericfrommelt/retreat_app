@@ -1,0 +1,15 @@
+var activityModal = $('#activity-modal');
+
+activityModal.empty();
+activityModal.append('<button class="close">close</button>')
+
+<% if @activity.category == 'play' %>
+  activityModal.css('background', '#beb58a')
+<% elsif @activity.category == 'stay' %>
+  activityModal.css('background', '#29666f')
+<% else @activity.category == 'eat' %>
+  activityModal.css('background', '#ff3e4d')
+<% end %>
+
+activityModal.append('<%= j(render partial: "commentform", locals: {activity: @activity}) %>');
+$('.modal').fadeIn('fast');

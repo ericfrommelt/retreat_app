@@ -1,8 +1,8 @@
 $('#user-auth-modal').empty();
-$('#sign-up-modal').hide();
+$('#sign-up-modal').fadeOut('fast');
 
 var loginForm = '<%= j(render "loginform") %>';
 
-$('.modal').show();
+$('.modal').fadeIn('fast');
 $('#user-auth-modal').append('<button class="close">Close</button>').append('<h1>Log In</h1>').append(loginForm);
-$('#user-auth-modal').show();
+$('#user-auth-modal').fadeIn('fast');

@@ -1,14 +1,23 @@
-<li id="<%= dom_id(activity) %>">
-  <figure><%= image_tag activity.image_url %></figure>
+<li id="<%= dom_id(activity) %>" class="activity">
+  <figure class="container"><%= image_tag activity.image_url %></figure>
+
+
+  <p class="activity-name"><%= activity.name %></p>
+
+  <div></div>
 
   <% if current_user.getaways.include?(getaway) %>
     <%= link_to 'Change Photo', activity_change_photo_path(activity), class: 'activity-photo', remote: true %>
   <% end %>
 
-  <p><%= activity.name %></p>
   <div class="trip-info-detail"><%= activity.comment %></div>
 
   <% if current_user.getaways.include?(getaway) %>
+
+    <% if activity.comment == nil || activity.comment == "" %>
+      <%= link_to 'Add a comment', activity_change_comment_path(activity), class: "add-activity-comment", remote: true %>
+    <% end %>
+
     <div class="delete-wrapper">
       <%= link_to 'Delete', activity_path(activity), method: :delete, remote: true, class: 'remove-activity' %>
     </div>

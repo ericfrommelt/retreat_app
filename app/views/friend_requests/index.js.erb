@@ -9,8 +9,8 @@ profileModal.append('<button class="close">close</button>');
 <% end %>
 
 if (!friend_requests) {
-  friend_requests = 'You don\'t have any friend requests';
+  friend_requests = '<h2>You don\'t have any friend requests</h2>';
 }
 
 profileModal.append(friend_requests);
-$('.modal').show();
+$('.modal').fadeIn();
