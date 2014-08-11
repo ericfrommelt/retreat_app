@@ -37,6 +37,16 @@ class ActivitiesController < ApplicationController
     render json: @activity
   end
 
+  def change_comment
+    @activity = Activity.find(params[:activity_id])
+  end
+
+  def update_comment
+    @activity = Activity.find(params[:activity_id])
+    @activity.comment = params[:new_comment]
+    @activity.save
+  end
+
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy

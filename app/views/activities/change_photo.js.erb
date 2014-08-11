@@ -8,4 +8,4 @@ activityModal.append('<h1>Choose a photo</h1>');
 activityModal.append(photosDiv);
 photosDiv.append('<%= j(render partial: "getaway_photos/photos", locals: {photos: @activity.getaway.getaway_photos, activity: @activity}) %>');
 
-$('.modal').show();
+$('.modal').fadeIn('fast');

@@ -1,0 +1,6 @@
+var activityEl = $('#' + '<%= dom_id(@activity) %>');
+
+activityEl.find('.add-activity-comment').remove();
+activityEl.find('.trip-info-detail').text('<%= @activity.comment %>');
+
+$('.modal').fadeOut('fast');

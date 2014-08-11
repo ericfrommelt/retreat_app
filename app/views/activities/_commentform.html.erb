@@ -1,0 +1,4 @@
+<%= form_tag activity_update_comment_path(activity), method: :put, remote: true do %>
+  <%= text_area_tag :new_comment, nil, placeholder: 'What do you have to say?' %>
+  <%= submit_tag 'Update Comment' %>
+<% end %>

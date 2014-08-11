@@ -46,7 +46,22 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.where("LOWER(first_name) LIKE '%#{params[:search]}%'")
+    names = params[:search].split(' ')
+    @users = User.where("(LOWER(first_name) LIKE '%#{params[:search]}%') OR (LOWER(last_name) LIKE '%#{params[:search]}%')")
+    if @users.count == 0
+      @users = User.where("first_name='#{names.first}' AND last_name='#{names.last}'")
+    end
+  end
+
+  def search_autocomplete
+    @users = User.where("(LOWER(first_name) LIKE '#{params[:data][:search]}%') OR (LOWER(last_name) LIKE '#{params[:data][:search]}%')")
+    @names = {names: []}
+
+    @users.each do |user|
+      @names[:names] << "#{user.first_name} #{user.last_name}"
+    end
+
+    render json: @names
   end
 
   def friends
@@ -55,6 +70,6 @@ class UsersController < ApplicationController
 
   private
   def users_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :comment, :avatar)
   end
 end

@@ -13,20 +13,23 @@ Rails.application.routes.draw do
 
 
   get '/search_friends' => 'users#search', as: 'search_friends'
+  get '/search_friends_autocomplete' => 'users#search_autocomplete', as: 'search_friends_autocomplete'
 
   resources :friendships, only: [:create, :destroy]
 
   resources :friend_requests, only: [:index, :create, :destroy] do
-    post 'accept', on: :member
-    post 'reject', on: :member
+    member do
+      post 'accept'
+      post 'reject'
+    end
   end
 
   resources :getaways do
     get '/new_activity/:category' => 'activities#new', as: 'new_activity'
-    get '/choose_date' => 'getaways#choose_date', as: 'choose_date'
-    post '/copy' => 'getaways#copy', as: 'copy'
-    get '/add_comment' => 'getaways#add_comment', as: 'add_comment'
-    put '/update_comment' => 'getaways#update_comment', as: 'update_comment'
+    get '/choose_date'            => 'getaways#choose_date', as: 'choose_date'
+    post '/copy'                  => 'getaways#copy', as: 'copy'
+    get '/add_comment'            => 'getaways#add_comment', as: 'add_comment'
+    put '/update_comment'         => 'getaways#update_comment', as: 'update_comment'
     resources :getaway_photos, only: [:new, :index]
   end
 
@@ -34,8 +37,11 @@ Rails.application.routes.draw do
   end
 
   resources :activities, only: [:index, :create, :destroy] do
-    get '/change_photo' => 'activities#change_photo', as: 'change_photo'
-    put '/update_photo' => 'activities#update_photo', as: 'update_photo'
+    get '/change_photo'           => 'activities#change_photo', as: 'change_photo'
+    put '/update_photo'           => 'activities#update_photo', as: 'update_photo'
+
+    get '/change_comment'         => 'activities#change_comment', as: 'change_comment'
+    put '/update_comment'         => 'activities#update_comment', as: 'update_comment'
   end
 
 end

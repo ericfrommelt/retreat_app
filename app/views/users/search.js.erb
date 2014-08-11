@@ -5,5 +5,10 @@ var friends = $('<%= j(render @users) %>')
 
 feedModal.empty();
 feedModal.append(closeButton);
-feedModal.append(friends);
-modal.show();
+
+<% if @users.count == 0 %>
+  feedModal.append('<h2>No Results</h2>');
+<% else %>
+  feedModal.append(friends);
+<% end %>
+modal.fadeIn('fast');
